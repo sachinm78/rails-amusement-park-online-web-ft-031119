@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create]
-
+  
   def new
     @user = User.new
   end
@@ -20,7 +20,9 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :height, :happiness, :nausea, :tickets, :password, :admin)
   end
+
 end

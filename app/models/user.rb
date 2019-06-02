@@ -1,8 +1,8 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   has_many :rides
   has_many :attractions, through: :rides
   has_secure_password
-  
+
   def mood
     if self.nausea && self.happiness
       if self.nausea > self.happiness
@@ -12,5 +12,4 @@ class User < ActiveRecord::Base
       end
     end
   end
-end
 end
